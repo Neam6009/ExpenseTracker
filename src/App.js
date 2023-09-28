@@ -33,10 +33,16 @@ const App = () => {
     });
   }
 
+  const deletexpenseHandler = (expenseToDelete)=>{
+    console.log(expenseToDelete.title);
+    const updatedExpenses = expenses.filter((expense)=> expense.id !== expenseToDelete.id);
+    setExpenses(updatedExpenses);
+  }
+
   return (
     <div>
       <NewExpense onAddExpense = {addExpenseHandler}/>
-      <Expenses expenses = {expenses}/>
+      <Expenses expenses = {expenses} deleteExpense = {deletexpenseHandler}/>
     </div>
   );
 }
